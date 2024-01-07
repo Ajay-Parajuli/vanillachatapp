@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
 }
 
 body{
@@ -155,7 +156,7 @@ color: #333;
     padding-bottom: 20px;
 }
 
-.wrapper img{
+.container img{
     object-fit: cover;
     border-radius: 50%;
 }
@@ -273,7 +274,7 @@ overflow-y: auto;
 }
 
 .users-list a .content p{
-    color: #67676a;
+    color: #ccc;
 }
 
 .users-list a .status-dot{
@@ -317,8 +318,6 @@ overflow-y: auto;
     font-size: 17px;
     font-weight: 500;
 }
-
-
 
 .chat-box{
     height: 500px;
