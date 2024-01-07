@@ -317,5 +317,14 @@ overflow-y: auto;
 
 }
 
-  
+
+@media screen and (min-width:700px) {
+    .users .search input{
+        height: 50px;
+      }
+
+      .users .search button.active{
+        height: 50px;
+     }
+  }
 
