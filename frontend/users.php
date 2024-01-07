@@ -1,4 +1,10 @@
-
+<?php
+session_start();
+if (!isset($_SESSION['unique_id'])) {
+    header("location: login.php");
+    exit();
+}
+?>
 <?php
 include_once "header.php"; ?>
 
@@ -22,7 +28,7 @@ include_once "header.php"; ?>
                         <p><?php echo $row['status']; ?></p>
                     </div>
                 </div>
-                <a href="php/logout.php>" class="logout">Logout</a>
+                <a href="../backend/PHP/logout.php?logout_id=<?php echo $row['unique_id'] ?>" class="logout">Logout</a>
 
             </header>
             <div class="search">
