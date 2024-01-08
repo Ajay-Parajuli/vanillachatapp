@@ -302,6 +302,11 @@ overflow-y: auto;
     padding: 18px 30px;
 }
 
+.wrapper img{
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .chat-area header .back-icon{
     font-size: 18px;
     color: #333;
