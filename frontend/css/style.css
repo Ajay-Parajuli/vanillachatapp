@@ -13,13 +13,13 @@ body{
      justify-content: center;
      align-items: center;
      min-height: 100vh;
-     background: #f7f7f7;
+     background: #ccc;
+     width: 100%;
  }
 
 
 .container{
-    background: #6868af;
-    width: 98%;
+    background: #222222;
     border-bottom-left-radius: 50px;
 }
 
@@ -106,10 +106,10 @@ border-radius: 5px;
  border: none;
  font-size: 17px;
  font-weight: 600;
-background: #84D1D6;;
+background: #4682b4;
  border-radius: 5px;
  cursor: pointer;
-color: #333;
+color: #fff;
 }
 
 .form form .field i.active:before{
@@ -135,6 +135,8 @@ color: #333;
 
 .form .link a{
     color: #fff;
+    text-decoration: underline;
+
 }   
 
 .form .link a:hover{
@@ -186,10 +188,10 @@ color: #333;
     padding: 7px 15px;
     font-size: 17px;
     font-weight: 500;
-    background: #84D1D6;
+    background: #4682b4;
     border-radius: 5px;
     text-decoration: none;
-    color: #333;
+    color: #fff;
 }
 
 .users .search{
@@ -247,8 +249,8 @@ color: #333;
 }
 
 .users-list{
-max-height: 350px;
 overflow-y: auto;
+height: 400px
 }
 
 :is(.users-list, .chat-box)::-webkit-scrollbar{
@@ -279,7 +281,7 @@ overflow-y: auto;
 
 .users-list a .status-dot{
     font-size: 12px;
-    color: #468669;
+    color:#AAFF00
 }
 
 .users-list a .status-dot.offline{
@@ -296,7 +298,7 @@ overflow-y: auto;
 /* Chat area css code*/
 
 .wrapper{
-    background: #fff;
+    background: #222222;
     width: 98%;
     border-bottom-left-radius: 50px;
 }
@@ -305,6 +307,7 @@ overflow-y: auto;
     display: flex;
     align-items: center;
     padding: 18px 30px;
+    color: #fff;
 }
 
 .wrapper img{
@@ -314,7 +317,7 @@ overflow-y: auto;
 
 .chat-area header .back-icon{
     font-size: 18px;
-    color: #333;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -331,7 +334,7 @@ overflow-y: auto;
 
 .chat-box{
     height: 500px;
-    background: #eee;
+    background: #ccc;
     padding: 10px 30px 20px 30px;
     overflow-y: auto;
 }
@@ -361,8 +364,8 @@ margin: 15px 0;
 }
 
 .incoming .details p{
-  color: #333;
-  background: #fff;
+  color: #fff;
+  background: #333;
   border-radius: 18px 18px 18px 0;
 }
 
@@ -378,7 +381,7 @@ margin: 15px 0;
 }
 
 .outgoing .details p{
-background: #333;
+background: #4682b4;
 color: #fff;
 border-radius: 18px 18px 0 18px;
 }
@@ -444,10 +447,17 @@ border-radius: 0 5px 5px 0;
 
 
 
+    
+    @media screen and (min-width:400px) {
+        .users-list{
+            height: 650px
+            }
+      }
 
 @media screen and (min-width:760px) {
     .container{
         width: 700px;
+        border-top-right-radius: 50px;
     }
     .wrapper{
         width: 700px;
@@ -475,6 +485,21 @@ border-radius: 0 5px 5px 0;
           .users .search button.active{
             height: 50px;
          }
+         .users-list{
+            height: 400px
+            }
+
+          .status-link{
+            display: flex;
+          }
+
+          .status-link span{
+            margin-left: 10px;
+          }
+
+          .status-link a{
+            margin-left: 10px;
+          }
   }
 
   @media screen and (min-width:1000px) {
@@ -484,4 +509,10 @@ border-radius: 0 5px 5px 0;
     .wrapper{
         width: 950px;
     }
+
+    .users-list{
+        height: 350px
+        }
+
+
   }
