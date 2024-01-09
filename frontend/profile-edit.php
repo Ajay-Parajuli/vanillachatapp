@@ -31,15 +31,17 @@ include_once "../backend/PHP/profile.php"; ?>
                 </div>
                 <div class="field image">
                     <label for="image">Select Image</label>
-                    <input type="file" name="image" id="image">
+                    <input type="file" name="image" id="image" onchange="displaySelectedImage()">
                     <?php
                     if (isset($user_data['img']) && !empty($user_data['img'])) {
                         $imagePath = '../backend/PHP/images/' . $user_data['img']; // Adjust the path as needed
+                        echo '<div id="currentImageContainer">';
                         if (file_exists($imagePath)) {
                             echo '<img src="' . $imagePath . '" alt="Current Image" style="width: 45px; height: 45px; border-radius: 100px;">';
                         } else {
                             echo '<p>No file available</p>';
                         }
+                        echo '</div>';
                     }
                     ?>
                 </div>
@@ -52,6 +54,5 @@ include_once "../backend/PHP/profile.php"; ?>
     </div>
     <script src="./js/profile.js"></script>
 </body>
-
 
 </html>
