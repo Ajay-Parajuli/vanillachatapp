@@ -6,16 +6,16 @@ $fname = $_POST['firstname'];
 $lname = $_POST['lastname'];
 
 if (!empty($fname) && !empty($lname)) {
-    // Fetch the current status from the database
-    $stmt_fetch_status = $conn->prepare("SELECT status FROM members WHERE unique_id = ?");
-    $stmt_fetch_status->bind_param("i", $_SESSION['unique_id']);
-    $stmt_fetch_status->execute();
-    $stmt_fetch_status->bind_result($current_status);
-    $stmt_fetch_status->fetch();
-    $stmt_fetch_status->close();
+    // Fetch the current status and old image name from the database
+    $stmt_fetch_data = $conn->prepare("SELECT status, img FROM members WHERE unique_id = ?");
+    $stmt_fetch_data->bind_param("i", $_SESSION['unique_id']);
+    $stmt_fetch_data->execute();
+    $stmt_fetch_data->bind_result($current_status, $old_img_name);
+    $stmt_fetch_data->fetch();
+    $stmt_fetch_data->close();
 
-    // check if user uploaded a file
-    if (isset($_FILES['image'])) { // if file is uploaded
+    // Check if user uploaded a new file
+    if (isset($_FILES['image'])) {
         $img_name = $_FILES['image']['name'];
         $tmp_name = $_FILES['image']['tmp_name'];
 
@@ -28,14 +28,22 @@ if (!empty($fname) && !empty($lname)) {
             $time = time();
             $new_img_name = $time . $img_name;
 
+            // Delete the old image file if it exists
+            if (!empty($old_img_name) && file_exists("images/" . $old_img_name)) {
+                unlink("images/" . $old_img_name);
+            }
+
+            // Move the newly uploaded file
             if (move_uploaded_file($tmp_name, "images/" . $new_img_name)) {
-                // Update query for existing user with image and the current status
+                // Update query for existing user with the new image and the current status
                 $stmt_update_member = $conn->prepare("UPDATE members SET name = ?, lastname = ?, img = ?, status = ? WHERE unique_id = ?");
                 $stmt_update_member->bind_param("ssssi", $fname, $lname, $new_img_name, $current_status, $_SESSION['unique_id']);
                 $stmt_update_member->execute();
                 $stmt_update_member->close();
 
                 echo 'success';
+            } else {
+                echo 'Failed to move the uploaded file!';
             }
         } else {
             echo 'Please select an image file - jpeg, jpg, png!';
@@ -50,5 +58,5 @@ if (!empty($fname) && !empty($lname)) {
         echo 'success';
     }
 } else {
-    echo 'First name and last name are required!';
+    echo 'Firstname and lastname are required!';
 }

@@ -24,7 +24,7 @@ include_once "header.php"; ?>
                     <div class="details">
                         <span><?php
                                 echo $row['name'] . " " . $row['lastname'];
-                                ?></span>
+                                ?> | <a class="edit-prof" href="profile-edit.php">Edit</a> </span>
                         <p><?php echo $row['status']; ?></p>
                     </div>
                 </div>

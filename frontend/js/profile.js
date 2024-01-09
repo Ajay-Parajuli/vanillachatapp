@@ -30,3 +30,29 @@ continueBtn.onclick = async () => {
         console.error('Error:', error);
     }
 };
+
+
+function displaySelectedImage() {
+    const fileInput = document.getElementById('image');
+    const currentImageContainer = document.getElementById('currentImageContainer');
+
+    // Remove the current image if it exists
+    if (currentImageContainer) {
+        currentImageContainer.remove(); 
+    }
+
+    // Display the selected image
+    if (fileInput.files.length > 0) {
+        const selectedImage = fileInput.files[0];
+        const selectedImageUrl = URL.createObjectURL(selectedImage);  
+        const insertedImgContainer = document.querySelector('.inserted-img');
+
+        const newImage = document.createElement('img');
+
+        newImage.src = selectedImageUrl;
+        newImage.alt = 'Selected Image';
+
+        insertedImgContainer.appendChild(newImage);
+    }
+}
+
