@@ -53,7 +53,7 @@ setInterval(async () => {
     } catch (error) {
         console.error("Error:", error);
     }
-}, 500); // this function will run frequently after 500ms
+}, 2000); // this function will run frequently after 500ms
 
 function scrollToBottom() {
     chatBox.scrollTop = chatBox.scrollHeight;

@@ -24,8 +24,11 @@ include_once "header.php"; ?>
                     <div class="details">
                         <span><?php
                                 echo $row['name'] . " " . $row['lastname'];
-                                ?> | <a class="edit-prof" href="profile-edit.php">Edit</a> </span>
-                        <p><?php echo $row['status']; ?></p>
+                                ?></span>
+                        <div class="status-link">
+                            <p><?php echo $row['status']; ?></p>
+                            <span>| <a class="edit-prof" href="profile-edit.php">Edit</a></span>
+                        </div>
                     </div>
                 </div>
                 <a href="../backend/PHP/logout.php?logout_id=<?php echo $row['unique_id'] ?>" class="logout">Logout</a>
