@@ -287,6 +287,11 @@ overflow-y: auto;
 
 }
 
+.edit-prof{
+    color: #fff;
+    text-decoration: underline;
+}
+
   
 /* Chat area css code*/
 
@@ -406,8 +411,16 @@ border-radius: 0 5px 5px 0;
 }
 
 
+.edit header a{
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
 
-
+.edit header span{
+    font-size: 17px;
+    padding-left: 20px;
+}
 
 
 
