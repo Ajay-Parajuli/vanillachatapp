@@ -30,20 +30,24 @@ include_once "../backend/PHP/profile.php"; ?>
                     </div>
                 </div>
                 <div class="field image">
-                    <label for="image">Select Image</label>
-                    <input type="file" name="image" id="image" onchange="displaySelectedImage()">
-                    <?php
-                    if (isset($user_data['img']) && !empty($user_data['img'])) {
-                        $imagePath = '../backend/PHP/images/' . $user_data['img']; // Adjust the path as needed
-                        echo '<div id="currentImageContainer">';
-                        if (file_exists($imagePath)) {
-                            echo '<img src="' . $imagePath . '" alt="Current Image" style="width: 45px; height: 45px; border-radius: 100px;">';
-                        } else {
-                            echo '<p>No file available</p>';
+                    <div class="insert-field">
+                        <label for="image">Select Image</label> <br>
+                        <input type="file" name="image" id="image" onchange="displaySelectedImage()">
+                    </div>
+                    <div class="inserted-img">
+                        <?php
+                        if (isset($user_data['img']) && !empty($user_data['img'])) {
+                            $imagePath = '../backend/PHP/images/' . $user_data['img']; // Adjust the path as needed
+                            echo '<div id="currentImageContainer">';
+                            if (file_exists($imagePath)) {
+                                echo '<img class="user-img-new" src="' . $imagePath . '" alt="Current Image">';
+                            } else {
+                                echo '<p>No file available</p>';
+                            }
+                            echo '</div>';
                         }
-                        echo '</div>';
-                    }
-                    ?>
+                        ?>
+                    </div>
                 </div>
 
                 <div class="field button">

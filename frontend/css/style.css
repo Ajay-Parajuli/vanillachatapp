@@ -410,6 +410,8 @@ cursor: pointer;
 border-radius: 0 5px 5px 0;
 }
 
+/* Edit profile     */
+
 
 .edit header a{
     font-size: 18px;
@@ -421,6 +423,25 @@ border-radius: 0 5px 5px 0;
     font-size: 17px;
     padding-left: 20px;
 }
+
+.edit form .image {
+    display: flex;
+    flex-direction: row;;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.inserted-img img{
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    position: relative;
+    top: 5px;
+}
+
+
 
 
 
